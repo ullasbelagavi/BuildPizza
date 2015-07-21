@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+
+	  var parameters = location.search.substring(1).split("&");
+	  var rows = new Array();
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+		
+		for(j=0;j<parameters.length;j++)
+		{
+		
+		 var temp = parameters[j].split("=");
+		 l = unescape(temp[1]);
+		
+		  rows.push([l.toString(), 2]);
+			//data.addRow(l,2);
+		}
+		data.addRows(rows);
+		
+      /*  data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);*/
+
+        // Set chart options
+        var options = {'title':'Your Pizza Contents'};
+		var options1 = {
+          title: 'Your Pizza Contents',
+          pieHole: 0.5,
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+		
+		var chart1 = new google.visualization.PieChart(document.getElementById('chart_donut'));
+        chart1.draw(data, options1);
+      }
+    </script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+  function processForm()
+  {
+    var parameters = location.search.substring(1).split("&");
+	
+	for(i=0;i<parameters.length;i++)
+	{
+		 var temp = parameters[i].split("=");
+		 l = unescape(temp[1]);
+			//alert(l); //Dialog with the text you put on the textbox
+	}
+    
+  }
+  processForm();
+</script>
+
+  </head>
+
+  <body  align="center">
+<h1>Build Your Own Pizza</h1>
+<div class="alert alert-info" role="alert"><h3>Dashboard Showing the Contnents of Pizza!!!!!!</h3></div>
+<table align="center">
+<tr><td>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div" style="width: 900px; height: 500px;"></div></td><td>
+	<div id="chart_donut" style="width: 900px; height: 500px;"></div>
+	</td>
+	</tr>
+	</table>
+	<button type="button" class="btn btn-primary" data-toggle="button" onclick="location.href='index.html'">Home</button> 
+  </body>
+</html>

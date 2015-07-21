@@ -1,0 +1,110 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script>
+  function processForm()
+  {
+    var parameters = location.search.substring(1).split("&");
+	
+	for(i=0;i<parameters.length;i++)
+	{
+		 var temp = parameters[i].split("=");
+		 unescape(temp[0]);
+		 l = unescape(temp[1]);
+			//alert(l); //Dialog with the text you put on the textbox
+			
+	}
+    
+  }
+  processForm();
+</script>
+</head>
+<body bgcolor="#4678CE" align="center">
+<form action="DashBoard.html" method="GET">
+<h1><font>Build Your Own Pizza</font></h1>
+<img src="bar2.jpg"/>
+<div class="panel panel-info" >
+<div class="panel-heading">
+    <h3 class="panel-title">CHOOSE TOPPINGS</h3>
+  </div>
+  <div class="panel-body">
+  <div class="container-liquid" style="margin:0px; padding: 0px">
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 text-center leftspan" id="one"><table><tr><td><h4><font color="red">CHOOSE MEATS</font></h4></td></tr>
+		
+		
+		<tr><td><input type="checkbox" name="meats" value="pepporni">Pepporni</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="italiansausage">Italian Sausage</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="sliceditaliansausage">Sliced Italian Sausage</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="beef">Beef
+		<tr><td><input type="checkbox" name="meats" value="phillysteak">Philly Steak</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="ham">Ham</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="bacon">Bacon</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="salami">Salami</td></tr>
+		<tr><td><input type="checkbox" name="meats" value="premiumchicken">Premium Chicken</td></tr>
+		</td></tr></table><br>		<br>
+		</div>
+        <div class="col-xs-3 col-sm-6 col-md-3 text-center leftspan" id="two"><table><tr><td><h4><font color="green">CHOOSE NON-MEATS</font></h4></td></tr>
+		
+		<tr><td><input type="checkbox" name="nonmeats" value="cheddarcheese">Cheddar Cheese</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="fetacheese">Feta Cheese</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="shreddedparmesanasiago">Shredded parmesan Asiago</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="shreddedprovolonecheese">Shredded Provolone Cheese</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="bananapeppers">Banana Peppers</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="blackolives">Black Olives</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="garlic">Garlic</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="greenpeppers">Green Peppers</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="jalapenopeppers">Jalapeno Peppers</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="mushrooms">Mushrooms</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="pineapple">Pineapple</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="onions">Onions</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="roastedredpeppers">Roasted Red Peppers</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="spinach">Spinach</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="dicedtomatoes">Diced Tomatoes</td></tr>
+		<tr><td><input type="checkbox" name="nonmeats" value="hotsauce">Hot Sauce</td></tr>
+		</td></tr></table>
+		</div>
+		
+		
+
+        
+    </div>
+</div>
+     
+	
+  </div>
+</div>
+<input id="size" type="hidden" />
+
+<script>
+ var parameters = location.search.substring(1).split("&");
+for(i=0;i<parameters.length;i++)
+{
+	
+		 var temp = parameters[i].split("=");
+		 
+		 l = unescape(temp[1]);
+		
+	//	document.getElementById("size").name = unescape(temp[0]).toString();
+	//	document.getElementById("size").value = unescape(temp[1]).toString();
+			//alert(l); //Dialog with the text you put on the textbox
+			
+
+	
+}
+</script>
+  <button type="Submit" class="btn btn-primary" data-toggle="button">Build</button> 
+	<button type="reset" class="btn btn-primary" data-toggle="button">Cancel</button>
+
+</form>
+</body>
+
+</html>
